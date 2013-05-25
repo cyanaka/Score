@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">    
+
+    <h:head>
+        <title>Edit Game</title>
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Date  :"></p:outputLabel>
+                <p:calendar  value="#{gameController.auxiliary.gameDate}" required="true"></p:calendar> 
+                
+            </p:panelGrid>
+                <br/>
+                <br/>
+
+            <p:panelGrid columns="8">
+                <h:outputLabel value="Player Home"></h:outputLabel>
+                <h:selectOneMenu id="selectPlayerHome" value="#{gameController.auxiliary.playerHome}">
+                    <f:selectItem itemLabel="Select Player Home" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{gameController.allPlayers}"
+                        var="p"
+                        itemValue="#{p}"
+                        itemLabel="#{p.name} #{p.surname}"
+                        ></f:selectItems>
+                </h:selectOneMenu>
+
+                <h:outputLabel value="Country Home"></h:outputLabel>
+                <h:selectOneMenu id="selectCountryHome" value="#{gameController.idCountry}">
+                    <f:selectItem itemLabel="Select Country" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{gameController.allCountry}"
+                        var="c"
+                        itemValue="#{c.id}"
+                        itemLabel="#{c.name}"
+                        ></f:selectItems>
+                    <f:ajax event="change" render="selectTeam" listener="#{gameController.refreshTeam()}"/>
+                </h:selectOneMenu>
+
+                <h:outputLabel value="Team Home"></h:outputLabel>
+                <h:selectOneMenu id="selectTeam" value="#{gameController.idTeamHome}">
+                    <f:selectItem itemLabel="Select Team Home" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{gameController.auxilaryCountry.teams}"
+                        var="c"
+                        itemValue="#{c.id}"
+                        itemLabel="#{c.name}"
+                        ></f:selectItems>
+                </h:selectOneMenu>
+                <h:outputLabel value="Score Home"></h:outputLabel>
+                <p:spinner  value="#{gameController.auxiliary.scoreHome}"/>
+
+
+                <h:outputLabel value="Player Away"></h:outputLabel>
+                <h:selectOneMenu id="selectPlayerAway" value="#{gameController.idPlayerAway}">
+                    <f:selectItem itemLabel="Select Player Home" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{gameController.allPlayers}"
+                        var="c"
+                        itemValue="#{c.id}"
+                        itemLabel="#{c.name} #{c.surname}"
+                        ></f:selectItems>
+                </h:selectOneMenu>
+                <h:outputLabel value="Country Away"></h:outputLabel>
+                <h:selectOneMenu id="selectCountryAway" value="#{gameController.idCountry}">
+                    <f:selectItem itemLabel="Select Country" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{gameController.allCountry}"
+                        var="c"
+                        itemValue="#{c.id}"
+                        itemLabel="#{c.name}"
+                        ></f:selectItems>
+                    <f:ajax event="change" render="selectTeamAway" listener="#{gameController.refreshTeam()}"/>
+                </h:selectOneMenu>
+
+                <h:outputLabel value="Team Away"></h:outputLabel>
+                <h:selectOneMenu id="selectTeamAway" value="#{gameController.idTeamHome}">
+                    <f:selectItem itemLabel="Select Team Home" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{gameController.auxilaryCountry.teams}"
+                        var="c"
+                        itemValue="#{c.id}"
+                        itemLabel="#{c.name}"
+                        ></f:selectItems>
+                </h:selectOneMenu>
+                <h:outputLabel value="Score Away"></h:outputLabel>
+                <p:spinner value="#{gameController.auxiliary.scoreAway}"/>
+                
+            </p:panelGrid>
+                
+                <br/>
+                <br/>
+                
+            <p:commandButton value="Save" action="#{gameController.confirm()}"></p:commandButton>
+            <p:commandButton value="Cancel" action="./listGame.xhtml?faces-redirect=true" immediate="true"></p:commandButton>
+            <br/>
+            <h:messages></h:messages>
+        </h:form>
+    </h:body>
+</html>

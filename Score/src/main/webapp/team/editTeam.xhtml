@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">    
+    
+    <h:head>
+        <title>Edit Team</title>
+    </h:head>
+    <h:body>
+         <h:form>
+            <p:panelGrid columns="2">
+                <h:outputLabel value="Name"></h:outputLabel>
+                <p:inputText value="#{teamController.auxiliary.name}" required="true"></p:inputText>                
+                <h:outputLabel value="Country"></h:outputLabel>
+                <h:selectOneMenu id="selectCountry" value="#{teamController.idCountry}">
+                    <f:selectItem itemLabel="Select Country" itemValue="0"/>
+                    <f:selectItems 
+                        value="#{teamController.getAllCountry()}"
+                        var="c"
+                        itemValue="#{c.id}"
+                        itemLabel="#{c.name}"
+                        ></f:selectItems>
+                </h:selectOneMenu>
+            </p:panelGrid>
+            <br/>
+            <p:commandButton value="Save" action="#{teamController.confirm()}"></p:commandButton>
+            <p:commandButton value="Cancel" action="./listTeam.xhtml?faces-redirect=true" immediate="true"></p:commandButton>
+            <br/>
+            <h:messages></h:messages>
+
+        </h:form>
+    </h:body>
+</html>

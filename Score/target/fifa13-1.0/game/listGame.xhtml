@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>List Game </title>
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <p:commandButton value="New" action="#{gameController.preparedNewGame()}"/>
+
+            <br/>
+            <p:dataTable var="p" value="#{gameController.games}" >
+                <p:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText value="#{p.name}"></h:outputText>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Country</f:facet>
+                    <h:outputText value="#{p.country.name}"></h:outputText>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header"></f:facet>
+                    <p:commandButton value="Edit" action="#{gameController.preparedEditGame(p)}"/>
+                    <p:commandButton value="Delete" action="#{gameController.delete(p)}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

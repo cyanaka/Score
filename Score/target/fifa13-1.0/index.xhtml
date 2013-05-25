@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"     
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>SCORE FIFA 13</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Fifa 13">
+            <h:form>
+                
+                    <p:menuButton value="Register">
+                        <p:menuitem value="Register a Player" action="./player/listPlayer.xhtml?faces-redirect=true" immediate="true"/>
+                        <p:menuitem value="Register a Country" action="./country/listCountry.xhtml?faces-redirect=true" immediate="true"/>
+                        <p:menuitem value="Register a Team" action="./team/listTeam.xhtml?faces-redirect=true" immediate="true"/>
+                    </p:menuButton>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <p:commandButton value="Game" action="./game/editGame.xhtml?faces-redirect=true" immediate="true"/>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
