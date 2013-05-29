@@ -76,8 +76,16 @@ public class GameController {
     }
     
     public String confirm(){
-        facade.save(auxiliary);
+        updateAllValue();
+        facade.save(this.auxiliary);
         return "./listGame.xhmtl?faces-redirect=true";
+    }
+    
+    public void updateAllValue(){
+        this.auxiliary.setPlayerHome(this.facadePlayer.findPlayer(this.idPlayerHome));
+        this.auxiliary.setPlayerAway(this.facadePlayer.findPlayer(this.idPlayerAway));
+        this.auxiliary.setTeamHome(this.facadeTeam.findTeam(this.idTeamHome));
+        this.auxiliary.setTeamAway(this.facadeTeam.findTeam(this.idTeamAway));
     }
     
     public List<Game> getGames(){
@@ -149,10 +157,6 @@ public class GameController {
     }
 
     private void initializeAll() {
-        this.idPlayerAway = 0L;
-        this.idPlayerHome = 0L;
-        this.idTeamAway = 0L;
-        this.idTeamHome = 0L;
         this.auxiliary = new Game();
         this.auxilaryCountry = new Country();
     }

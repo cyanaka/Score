@@ -43,4 +43,8 @@ public class FacadeTeam {
     public List<Team> getTeams(Long idCountry) {
         return em.createQuery("SELECT t FROM Team t WHERE t.id = :idTeam").setParameter("idTeam", idCountry).getResultList();
     }
+
+    public Team findTeam(Long idTeam) {
+        return em.find(Team.class, idTeam);
+    }
 }

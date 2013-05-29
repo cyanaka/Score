@@ -39,4 +39,9 @@ public class FacadePlayer {
     public List<Player> getPlayers() {
         return em.createQuery("SELECT p FROM Player p ORDER BY p.name").getResultList();
     }
+
+    public Player findPlayer(Long idPlayer) {
+        
+        return em.find(Player.class, idPlayer);
+    }
 }

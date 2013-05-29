@@ -20,11 +20,11 @@ and open the template in the editor.
             <p:dataTable var="p" value="#{gameController.games}" >
                 <p:column>
                     <f:facet name="header">Name</f:facet>
-                    <h:outputText value="#{p.name}"></h:outputText>
+                    <h:outputText value="#{p.playerHome.name}"></h:outputText>
                 </p:column>
                 <p:column>
                     <f:facet name="header">Country</f:facet>
-                    <h:outputText value="#{p.country.name}"></h:outputText>
+                    <h:outputText value="#{p.scoreHome}"></h:outputText>
                 </p:column>
 
                 <p:column>
