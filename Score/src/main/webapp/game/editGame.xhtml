@@ -72,7 +72,7 @@ and open the template in the editor.
                         ></f:selectItems>
                 </h:selectOneMenu>
                 <h:outputLabel value="Country Away"></h:outputLabel>
-                <h:selectOneMenu id="selectCountryAway" value="#{gameController.idCountry}">
+                <h:selectOneMenu id="selectCountryAway" value="#{gameController.idCountryAway}">
                     <f:selectItem itemLabel="Select Country" itemValue="0"/>
                     <f:selectItems 
                         value="#{gameController.allCountry}"
@@ -80,14 +80,14 @@ and open the template in the editor.
                         itemValue="#{c.id}"
                         itemLabel="#{c.name}"
                         ></f:selectItems>
-                    <f:ajax event="change" render="selectTeamAway" listener="#{gameController.refreshTeam()}"/>
+                    <f:ajax event="change" render="selectTeamAway" listener="#{gameController.refreshTeamAway()}"/>
                 </h:selectOneMenu>
 
                 <h:outputLabel value="Team Away"></h:outputLabel>
                 <h:selectOneMenu id="selectTeamAway" value="#{gameController.idTeamAway}">
                     <f:selectItem itemLabel="Select Team Home" itemValue="0"/>
                     <f:selectItems 
-                        value="#{gameController.auxilaryCountry.teams}"
+                        value="#{gameController.auxilaryCountryAway.teams}"
                         var="c"
                         itemValue="#{c.id}"
                         itemLabel="#{c.name}"

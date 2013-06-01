@@ -35,6 +35,8 @@ public class GameController {
     
     private Long idCountry;
     private Country auxilaryCountry;
+    private Long idCountryAway;
+    private Country auxilaryCountryAway;
     
     private List<Team> selectTeam;
     
@@ -147,6 +149,22 @@ public class GameController {
     public void setIdCountry(Long idCountry) {
         this.idCountry = idCountry;
     }
+
+    public Country getAuxilaryCountryAway() {
+        return auxilaryCountryAway;
+    }
+
+    public void setAuxilaryCountryAway(Country auxilaryCountryAway) {
+        this.auxilaryCountryAway = auxilaryCountryAway;
+    }
+
+    public Long getIdCountryAway() {
+        return idCountryAway;
+    }
+
+    public void setIdCountryAway(Long idCountryAway) {
+        this.idCountryAway = idCountryAway;
+    }
     
     public List<Country> getAllCountry(){
         return facadeCountry.getCountries();
@@ -154,6 +172,9 @@ public class GameController {
     
     public void refreshTeam(){
         this.auxilaryCountry = facadeCountry.findCountry(idCountry);
+    }
+    public void refreshTeamAway(){
+        this.auxilaryCountryAway = facadeCountry.findCountry(idCountryAway);
     }
 
     private void initializeAll() {
