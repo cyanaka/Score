@@ -10,6 +10,7 @@ import com.fifa13.score.facade.FacadeCountry;
 import com.fifa13.score.facade.FacadeTeam;
 import java.util.List;
 import javax.faces.bean.ViewScoped;
+import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -83,6 +84,9 @@ public class TeamController {
         this.auxiliary.setCountry(facadeCountry.findCountry(idCountry));
     }
     
+    public String backToInicialPage(){
+        return "index.xhmtl?faces-redirect=true";
+    }
     
     
     
