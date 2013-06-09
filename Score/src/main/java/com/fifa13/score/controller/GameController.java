@@ -180,6 +180,7 @@ public class GameController {
     private void initializeAll() {
         this.auxiliary = new Game();
         this.auxilaryCountry = new Country();
+        
     }
     
     

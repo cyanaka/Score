@@ -15,7 +15,7 @@ and open the template in the editor.
         <h:form>
             
         <p:commandButton value="New" action="#{playerController.preparedNewPlayer()}"/>
-        
+        <p:commandButton value="Back" action="#{teamController.backToInicialPage()}" immediate="true" ajax="false"/>
         <br/>
         <p:dataTable var="p" value="#{playerController.players}" >
             <p:column>

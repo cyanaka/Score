@@ -15,18 +15,34 @@ and open the template in the editor.
         <h:form>
 
             <p:commandButton value="New" action="#{gameController.preparedNewGame()}"/>
+           <p:commandButton value="Back" action="#{teamController.backToInicialPage()}" immediate="true" ajax="false"/>
 
             <br/>
             <p:dataTable var="p" value="#{gameController.games}" >
                 <p:column>
-                    <f:facet name="header">Name</f:facet>
-                    <h:outputText value="#{p.playerHome.name}"></h:outputText>
+                    <f:facet name="header">Date</f:facet>
+                    <h:outputText value="#{p.gameDate}" ></h:outputText>
                 </p:column>
                 <p:column>
-                    <f:facet name="header">Country</f:facet>
+                    <f:facet name="header">Home</f:facet>
+                    <h:outputText value="#{p.playerHome.name} - #{p.teamHome.name} "></h:outputText>
+                </p:column>
+                <p:column style="text-align: center">
+                    <f:facet name="header">Score Home</f:facet>
                     <h:outputText value="#{p.scoreHome}"></h:outputText>
                 </p:column>
-
+                <p:column style="text-align: center">
+                    <f:facet name="header">Versus</f:facet>
+                    <h:outputText value=" X " style="text-align: center"></h:outputText>
+                </p:column>
+                <p:column style="text-align: center">
+                    <f:facet name="header">Score Away</f:facet>
+                    <h:outputText value="#{p.scoreAway}"></h:outputText>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Away</f:facet>
+                    <h:outputText value="#{p.playerAway.name} - #{p.teamAway.name}"></h:outputText>
+                </p:column>
                 <p:column>
                     <f:facet name="header"></f:facet>
                     <p:commandButton value="Edit" action="#{gameController.preparedEditGame(p)}"/>

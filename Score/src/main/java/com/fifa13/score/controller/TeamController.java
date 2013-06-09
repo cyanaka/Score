@@ -85,7 +85,7 @@ public class TeamController {
     }
     
     public String backToInicialPage(){
-        return "index.xhmtl?faces-redirect=true";
+        return "/index.xhmtl?faces-redirect=true";
     }
     
     
