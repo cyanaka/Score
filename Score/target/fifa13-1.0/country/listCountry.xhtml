@@ -9,12 +9,12 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>List Country </title>
+        <title>Lista Produto Base </title>
     </h:head>
     <h:body>
         <h:form>
             
-        <p:commandButton value="New" action="#{countryController.preparedNewCountry()}"/>
+        <p:commandButton value="Novo" action="#{countryController.preparedNewCountry()}"/>
         <p:commandButton value="Back" action="#{teamController.backToInicialPage()}" immediate="true" ajax="false"/>
         <br/>
         <p:dataTable var="p" value="#{countryController.countries}" >
