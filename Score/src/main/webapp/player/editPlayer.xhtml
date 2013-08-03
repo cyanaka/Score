@@ -16,11 +16,11 @@ and open the template in the editor.
          <h:form>
             <p:panelGrid columns="2">
                 <h:outputLabel value="Name"></h:outputLabel>
-                <p:inputText value="#{playerController.auxiliary.name}" required="true"></p:inputText>                
+                <p:inputText value="#{playerController.auxiliary.name}" required="true" requiredMessage="Name is required"></p:inputText>                
                 <h:outputLabel value="Surname"></h:outputLabel>
-                <p:inputText value="#{playerController.auxiliary.surname}" required="true"></p:inputText>                
+                <p:inputText value="#{playerController.auxiliary.surname}" required="true" requiredMessage="Surname is required"></p:inputText>                
                 <h:outputLabel value="Birthday Date"></h:outputLabel>
-                <p:calendar value="#{playerController.auxiliary.birthdayDate}" required="true"/>                
+                <p:calendar value="#{playerController.auxiliary.birthdayDate}"  navigator="true" required="true" requiredMessage="Birth date is required"/>                
             </p:panelGrid>
             <br/>
             <p:commandButton value="Save" action="#{playerController.confirm()}"></p:commandButton>
